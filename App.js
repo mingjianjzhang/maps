@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
 
+import store from './store'
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import MapScreen from './screens/MapScreen';
@@ -10,6 +12,9 @@ import ReviewScreen from './screens/ReviewScreen';
 import SettingsScreen from './screens/SettingsScreen';
 
 export default class App extends React.Component {
+  componentWillMount(){
+  
+  }
   render() {
 
     const MainNavigator = TabNavigator({
@@ -24,17 +29,30 @@ export default class App extends React.Component {
               review: { screen: ReviewScreen },
               settings: { screen : SettingsScreen }
             })
-
+          }
+        }, {
+            lazy: true,
+            swipeEnabled: false,
+            animationEnabled: false,
+            tabBarPosition: 'bottom',
+            tabBarOptions: {
+            labelStyle: { fontSize: 12 }
           }
         })
       }
     }, {
+      navigationOptions: {
+        tabBarVisible: false
+      },
+      lazy: true,
       swipeEnabled: false,
       animationEnabled: false
     });
 
     return (
-      <MainNavigator />    
+      <Provider store={store}>
+        <MainNavigator />    
+      </Provider>
     );
   }
 }

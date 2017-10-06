@@ -1,0 +1,15 @@
+let params = {
+			grant_type: 'client_credentials',
+			client_id: '9iiYOBpNPuVPrCupfvvBdw',
+			client_secret: 'MTs2dodKZSm6pgZcVsW8whvhFkmzHiukteWcPLxCEjlVxOIMlg7M1gg5Jtuuxs1D'
+		}
+
+		let result = await ( await fetch('https://api.yelp.com/oauth2/token', {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			body: formurlencoded(params)
+		})).json();
+		console.log(result, "well after I post this is what I get");
