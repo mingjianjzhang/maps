@@ -111,7 +111,7 @@ class Swipe extends Component {
       return (
         <Animated.View
           key={item.id}
-          style={[styles.cardStyle, { top: 10 * (i - this.state.index), zIndex: 5 }]}
+          style={[styles.cardStyle]}
         >
           {this.props.renderCard(item)}
         </Animated.View>

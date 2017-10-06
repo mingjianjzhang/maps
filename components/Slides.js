@@ -7,7 +7,7 @@ class Slides extends Component {
 
 	renderLastSlide(index){
 		if (index === this.props.data.length -1) {
-			return (
+			return ( 
 				<Button 
 					buttonStyle={styles.buttonStyle}
 					title="Onwards!"
